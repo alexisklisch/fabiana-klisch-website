@@ -37,8 +37,8 @@ export function Home() {
       </section>
       <section class="mt-6 flex">
         <figure class="flex flex-col gap-6">
-          <img class="w-24" src="../src/assets/F.svg" alt="" />
-          <img class="w-24" src="../src/assets/K.svg" alt="" />
+          <img class="w-24" src="/F.svg" alt="" />
+          <img class="w-24" src="/K.svg" alt="" />
         </figure>
         <figure class="mx-auto text-remaxWhite-400 flex flex-col justify-center ">
           <div >

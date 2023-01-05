@@ -2,7 +2,7 @@ import {JSX} from 'preact'
 import { Header } from "./UI/Header"
 
 interface props {
-  children: JSX.Element[]
+  children: JSX.Element[] | JSX.Element
 }
 
 export const Layout = ({children}: props) => {

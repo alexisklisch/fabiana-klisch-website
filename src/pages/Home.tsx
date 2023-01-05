@@ -5,7 +5,7 @@ import { Header } from "../components/UI/Header";
 export function Home() {
   return (
     <Layout>
-      <div class="container mx-auto pt-6 px-4 max-w-4xl">
+      <div class="container mx-auto px-4 max-w-4xl">
         <section class="relative">
           <img class="-ml-16" src="/fabiana-hero.png" alt="Fabiana Klisch cruzada de brazos con espíritu de lucha" />
           <div class="absolute right-0 top-1/4">

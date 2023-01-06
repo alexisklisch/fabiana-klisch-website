@@ -1,5 +1,5 @@
 import { Switch, Route } from "wouter"
-import CreateFlyer from "./pages/CreateFlyer"
+import {CreateFlyer} from "./pages/CreateFlyer"
 import { Home } from "./pages/Home"
 
 export const App = () => {

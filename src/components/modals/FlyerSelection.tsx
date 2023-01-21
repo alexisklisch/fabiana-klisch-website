@@ -8,12 +8,11 @@ export const FlyerSelection = () => {
 
   function showComponentHandler() {
     const component = routes[templateSelected]
-    console.log(component)
     setCurrentComponent(component)
   }
 
   const sectionPart = (
-    <form class="flex flex-col">
+    <form class="flex flex-col max-w-5xl mx-auto">
       <label class="pl-4 text-remaxWhite-400">Selecciona una plantilla</label>
       <section class="mb-6 inline-flex gap-4 px-4 overflow-x-scroll py-3 w-full snap-mandatory snap-x scrollbar-hide">
         <TemplateCardSelection setTemplateSelected={setTemplateSelected} templateName="Gran casa" />

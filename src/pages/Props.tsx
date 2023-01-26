@@ -10,7 +10,7 @@ export const Props = () => {
   const { argenpropData } = useArgenprop(url)
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3500)
+    setTimeout(() => setLoading(false), 3000)
     const queryParams = new URLSearchParams(window.location.search)
     const argenprop = queryParams.get('ap')
     const URL = `https://www.argenprop.com/${argenprop}`
@@ -28,24 +28,24 @@ export const Props = () => {
 
   return (
     <>
-      {!address ? <LoadingScreen/> : null}
+      {loading ? <LoadingScreen/> : null}
       <Layout>
-        <main class=''>
-          <h1 class=' px-4 text-2xl text-remaxBlue-100 font-bold md:text-5xl md:leading-8'>
+        <main class='md:max-w-5xl mx-auto'>
+          <h1 class=' px-4 text-2xl text-remaxBlue-100 font-bold md:text-3xl md:leading-8'>
             {address}
           </h1>
           <h2 class='px-4 text-remaxRed-100 leading-5'>{city}, {cond}</h2>
           {/* Images */}
-          <section class='p-4 flex h-48 gap-3 overflow-scroll'>
+          <section class='p-4 flex h-48 gap-3 overflow-scroll scrollbar-thin scrollbar-thumb-remaxWhite-400 scrollbar-track-remaxWhite-200'>
             {images.map(img => <img class='object-cover rounded-md aspect-video shadow' src={img} alt={`Foto tomada en la propiedad ubicada en ${city} ${cond}`} />)}
           </section>
           {/* Price */}
-          <h2 class='px-4 text-2xl text-remaxBlue-100 font-bold md:text-5xl md:leading-8'>
+          <h2 class='px-4 text-2xl text-remaxBlue-100 font-bold md:text-3-xl md:leading-8'>
             {saleCurrency} {saleValue.toLocaleString('es-AR')}
           </h2>
           {expensesValue ? <h3 class='px-4 text-remaxWhite-300 leading-4'>+ <strong>ARS {expensesValue.toLocaleString('es-AR')}</strong> expensas</h3> : null}
 
-          <section class='px-4 py-12 grid grid-cols-2 gap-y-2'>
+          <section class='px-4 py-12 grid grid-cols-2 gap-y-2 md:grid-cols-3 md:place-items-center'>
             {/* Tamaño */}
             {size.value ? <p class='flex items-center gap-x-2 text-remaxWhite-400'>
               <span>

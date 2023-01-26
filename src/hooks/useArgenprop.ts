@@ -149,7 +149,7 @@ export const useArgenprop = (url: string) => {
             }
           }
         })
-      }, 1500)
+      }, 2500)
     }
     fetching()
   }, [url])

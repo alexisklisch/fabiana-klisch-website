@@ -4,13 +4,13 @@ import { lowerator } from '../utils/lowerator'
 import { spacesRemover } from '../utils/spacesRemover'
 import { Property } from '../types'
 
-export const useProperty = (url: string) => {
-  const [data, setData] = useState<Property>({
-    detail:{
+export const useArgenprop = (url: string) => {
+  const [argenpropData, setArgenpropData] = useState<Property>({
+    detail: {
       antiquity: 0,
       bathrooms: 0,
       bedrooms: 0,
-      cocheras: 0,
+      garages: 0,
       layout: '',
       orientation: '',
       rooms: 0,
@@ -44,9 +44,9 @@ export const useProperty = (url: string) => {
   useEffect(() => {
     const fetching = async () => {
       const fetchData = await fetch(url)
-      const htmlRaw = await fetchData.text()
+        .then(res => res.text())
 
-      const $ = cheerio.load(htmlRaw)
+      const $ = cheerio.load(fetchData)
 
       // Images
       const images: string[] = []
@@ -55,6 +55,7 @@ export const useProperty = (url: string) => {
         const validation = currentImg.includes('large')
         if (validation) images.push(currentImg);
       })
+
 
       // Location
       // Address
@@ -109,46 +110,49 @@ export const useProperty = (url: string) => {
       const antiquityContainer = mainInfo.find('li:contains("Antiguedad:")')
       const antiquity = Number(spacesRemover(antiquityContainer.find('strong').text()))
       // Cocheras
-      const cocherasContainer = mainInfo.find('li:contains("Cant. Cocheras:")')
-      const cocheras = Number(spacesRemover(cocherasContainer.find('strong').text()))
+      const garagesContainer = mainInfo.find('li:contains("Cant. Cocheras:")')
+      const garages = Number(spacesRemover(garagesContainer.find('strong').text()))
 
-      setData({
-        detail: {
-          antiquity,
-          bathrooms,
-          bedrooms,
-          cocheras,
-          layout,
-          rooms,
-          size: {
-            measure: coverSizeMeasure,
-            value: Number(coverSizeValue)
+      setTimeout(() => {
+
+        setArgenpropData({
+          detail: {
+            antiquity,
+            bathrooms,
+            bedrooms,
+            garages,
+            layout,
+            rooms,
+            size: {
+              measure: coverSizeMeasure,
+              value: Number(coverSizeValue)
+            },
+            state,
+            orientation
           },
-          state,
-          orientation
-        },
-        images,
-        location: {
-          address,
-          city,
-          cond
-        },
-        operation: {
-          realEstate,
-          type: operationType,
-          sale: {
-            currency: saleCurrency,
-            value: Number(saleValue)
+          images,
+          location: {
+            address,
+            city,
+            cond
           },
-          expenses: {
-            currency: expensesCurrency,
-            value: Number(expensesValue)
+          operation: {
+            realEstate,
+            type: operationType,
+            sale: {
+              currency: saleCurrency,
+              value: Number(saleValue)
+            },
+            expenses: {
+              currency: expensesCurrency,
+              value: Number(expensesValue)
+            }
           }
-        }
-      })
+        })
+      }, 1500)
     }
     fetching()
   }, [url])
 
-  return { data }
+  return { argenpropData }
 }

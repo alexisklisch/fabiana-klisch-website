@@ -3,7 +3,7 @@ export interface Property {
     antiquity: number
     bathrooms: number
     bedrooms: number
-    cocheras: number
+    garages: number
     layout: string
     rooms: number
     size: {

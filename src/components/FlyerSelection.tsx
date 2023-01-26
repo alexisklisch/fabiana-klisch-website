@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks"
+import { Link } from "wouter"
 import { routes } from "./handlers/routes"
 import { Layout } from "./Layout"
 import { TemplateCardSelection } from "./TemplateCardSelection"
@@ -14,6 +15,7 @@ export const FlyerSelection = () => {
 
   const sectionPart = (
     <Layout>
+      <Link href='/dashboard'><a class='block max-w-5xl mx-auto text-remaxWhite-300 mb-7'><span class='border p-2 px-4 rounded-full'>Atrás</span></a></Link>
       <form class="flex flex-col max-w-5xl mx-auto">
         <label class="pl-4 text-remaxWhite-400">Selecciona una plantilla</label>
         <section class="mb-6 inline-flex gap-4 px-4 overflow-x-scroll py-3 w-full snap-mandatory snap-x scrollbar-hide">

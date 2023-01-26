@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks"
+import { Link } from "wouter"
 import { Layout } from "./Layout"
 
 const Input = <input
@@ -21,7 +22,7 @@ export const LinksCreator = () => {
       const valueIndex = value.indexOf(url) + url.length
       if (value.includes(url)) {
         const text = value.slice(valueIndex)
-        urlList.push(`https://fabiana-klisch.vercel.app/props?ap=${text}`)
+        urlList.push(`https://klisch.ar/props?ap=${text}`)
       }
     })
     const finalUrls = urlList.join('\n\n')
@@ -36,6 +37,7 @@ export const LinksCreator = () => {
 
   return (
     <Layout>
+      <Link href='/dashboard'><a class='block max-w-5xl mx-auto text-remaxWhite-300 mb-7'><span class='border p-2 px-4 rounded-full'>Atrás</span></a></Link>
       <h1 class='mb-7 px-4 text-2xl text-remaxBlue-100 font-bold md:leading-8 md:max-w-4xl mx-auto'>
         Creá tu link
       </h1>

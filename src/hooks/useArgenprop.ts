@@ -113,45 +113,45 @@ export const useArgenprop = (url: string) => {
       const garagesContainer = mainInfo.find('li:contains("Cant. Cocheras:")')
       const garages = Number(spacesRemover(garagesContainer.find('strong').text()))
 
-      setTimeout(() => {
-
-        setArgenpropData({
-          detail: {
-            antiquity,
-            bathrooms,
-            bedrooms,
-            garages,
-            layout,
-            rooms,
-            size: {
-              measure: coverSizeMeasure,
-              value: Number(coverSizeValue)
-            },
-            state,
-            orientation
+      if(address === '') return
+      setArgenpropData({
+        detail: {
+          antiquity,
+          bathrooms,
+          bedrooms,
+          garages,
+          layout,
+          rooms,
+          size: {
+            measure: coverSizeMeasure,
+            value: Number(coverSizeValue)
           },
-          images,
-          location: {
-            address,
-            city,
-            cond
+          state,
+          orientation
+        },
+        images,
+        location: {
+          address,
+          city,
+          cond
+        },
+        operation: {
+          realEstate,
+          type: operationType,
+          sale: {
+            currency: saleCurrency,
+            value: Number(saleValue)
           },
-          operation: {
-            realEstate,
-            type: operationType,
-            sale: {
-              currency: saleCurrency,
-              value: Number(saleValue)
-            },
-            expenses: {
-              currency: expensesCurrency,
-              value: Number(expensesValue)
-            }
+          expenses: {
+            currency: expensesCurrency,
+            value: Number(expensesValue)
           }
-        })
-      }, 2500)
+        }
+      })
     }
     fetching()
+    console.log(argenpropData)
+
   }, [url])
 
   return { argenpropData }

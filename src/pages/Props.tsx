@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "preact/compat"
+import { Suspense, useEffect, useMemo, useState } from "preact/compat"
 import { Layout } from "../components/Layout"
 import { LoadingScreen } from "../components/LoadingScreen"
 import { useArgenprop } from "../hooks/useArgenprop"
@@ -8,15 +8,19 @@ export const Props = () => {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
   const { argenpropData } = useArgenprop(url)
-
+  
+  
   useEffect(() => {
     setTimeout(() => setLoading(false), 3000)
     const queryParams = new URLSearchParams(window.location.search)
     const argenprop = queryParams.get('ap')
     const URL = `https://www.argenprop.com/${argenprop}`
     setUrl(URL)
-    document.title = argenpropData.location.address + ' | Fabiana Klisch | Mudate conmigo'
   }, [])
+
+  useEffect(() => {
+    document.title = argenpropData.location.address + ' | Fabiana Klisch | Mudate conmigo'
+  }, [argenpropData])
 
   const { address } = argenpropData.location
   const { city, cond } = argenpropData.location

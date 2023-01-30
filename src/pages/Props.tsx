@@ -40,8 +40,8 @@ export const Props = () => {
           </h1>
           <h2 class='px-4 text-remaxRed-100 leading-5'>{city}, {cond}</h2>
           {/* Images */}
-          <section class='p-4 flex h-48 md:h-72 gap-3 overflow-scroll md:scrollbar-thin scrollbar-thumb-remaxWhite-300 scrollbar-track-remaxWhite-200'>
-            {images.map(img => <img class='object-cover rounded-md aspect-video shadow' src={img} alt={`Foto tomada en la propiedad ubicada en ${city} ${cond}`} />)}
+          <section class='p-4 flex h-48 md:h-80 md:py-8 md:my-2 gap-3 overflow-scroll md:scrollbar-thin scrollbar-thumb-remaxWhite-300 scrollbar-track-remaxWhite-200'>
+            {images.map(img => <img class='object-cover rounded-md aspect-video shadow-md' src={img} alt={`Foto tomada en la propiedad ubicada en ${city} ${cond}`} />)}
           </section>
           {/* Price */}
           <h2 class='px-4 text-2xl text-remaxBlue-100 font-bold md:text-3-xl md:leading-8'>

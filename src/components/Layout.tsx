@@ -17,10 +17,10 @@ export const Layout = ({children}: props) => {
           <img class="w-24" src="/K.svg" alt="" />
         </figure>
         <figure class="mx-auto text-remaxWhite-400 flex flex-col justify-center ">
-          <div class="lg:scale-150">
-            <h3 class="text-center text-3xl leading-5 text-remaxBlue-200">
+          <div>
+            <h3 class="text-center text-3xl md:text-5xl text-remaxBlue-200 leading-5 md:leading-12 font-bold">
               Fabiana Klisch<br />
-              <span class="text-sm font-normal text-remaxRed-100 ">
+              <span class="text-sm md:text-lg font-normal text-remaxRed-100">
                 Agente inmobiliario
               </span>
             </h3>

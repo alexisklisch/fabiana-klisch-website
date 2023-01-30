@@ -11,7 +11,7 @@ export const Props = () => {
   
   
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000)
+    setTimeout(() => setLoading(false), 1500)
     const queryParams = new URLSearchParams(window.location.search)
     const argenprop = queryParams.get('ap')
     const URL = `https://www.argenprop.com/${argenprop}`

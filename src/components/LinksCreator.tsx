@@ -3,9 +3,9 @@ import { Link } from "wouter"
 import { Layout } from "./Layout"
 
 const Input = <input
-  class='px-3 py-2 rounded-md shadow shadow-remaxWhite-300/30'
-  type="text"
-  placeholder='Link de Argenprop' />
+    class={`px-3 py-2 rounded-md shadow shadow-remaxWhite-300/30`}
+    type="text"
+    placeholder='🔗 MercadoLibre o Argenprop' />
 
 export const LinksCreator = () => {
   const [inputQ, setInputQ] = useState([Input])
@@ -15,14 +15,21 @@ export const LinksCreator = () => {
     e.preventDefault()
     const urlList: string[] = []
     const $inputs = (e.target as HTMLInputElement).querySelectorAll('input')
-    
+
     $inputs.forEach(elem => {
       const { value } = elem
-      const url = 'argenprop.com/'
-      const valueIndex = value.indexOf(url) + url.length
-      if (value.includes(url)) {
+      const apUrl = 'argenprop.com/'
+      const mlUrl = 'mercadolibre.com.ar/'
+      const valueIndex = value.indexOf(apUrl) + apUrl.length
+      if (value.includes(apUrl)) {
         const text = value.slice(valueIndex)
         urlList.push(`https://klisch.ar/props?ap=${text}`)
+      }
+      if (value.includes(mlUrl)) {
+        const text = /MLA-\d+/.exec(value)![0]
+          .replace('-', '')
+        
+        urlList.push(`https://klisch.ar/props?ml=${text}`)
       }
     })
     const finalUrls = urlList.join('\n\n')

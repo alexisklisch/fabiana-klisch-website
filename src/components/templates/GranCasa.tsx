@@ -1,13 +1,9 @@
 import dti from 'dom-to-image'
 import { useState } from 'preact/hooks'
-import { usePropData } from '../../hooks/usePropData'
 
 export const GranCasa = () => {
   const [screenshot, setScreenshot] = useState('')
   const [data, setData] = useState({images:[''], price:''})
-
-  usePropData('https://www.argenprop.com/casa-en-venta-en-recoleta-5-ambientes--12093232')
-    .then(data => setData(data))
 
   async function takeScreenshot() {
     const selected: HTMLDivElement | null = document.querySelector('#instagram-story1')

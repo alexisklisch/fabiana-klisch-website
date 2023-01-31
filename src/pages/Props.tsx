@@ -1,38 +1,40 @@
-import { Suspense, useEffect, useMemo, useState } from "preact/compat"
+import { useEffect, useState } from "preact/compat"
 import { Layout } from "../components/Layout"
 import { LoadingScreen } from "../components/LoadingScreen"
-import { useArgenprop } from "../hooks/useArgenprop"
+import { useProperty } from "../hooks/useProperty"
 import { wpLinkCreator } from "../utils/wpLinkCreator"
 
 export const Props = () => {
   const [url, setUrl] = useState('')
   const [loading, setLoading] = useState(true)
-  const { argenpropData } = useArgenprop(url)
-  
-  
+  const { propertyData } = useProperty({ url })
+
+
   useEffect(() => {
     setTimeout(() => setLoading(false), 1500)
     const queryParams = new URLSearchParams(window.location.search)
     const argenprop = queryParams.get('ap')
-    const URL = `https://www.argenprop.com/${argenprop}`
-    setUrl(URL)
+    const meli = queryParams.get('ml')
+    if (argenprop) setUrl(`https://www.argenprop.com/${argenprop}`)
+    if (meli) setUrl(`https://klisch-api.vercel.app/meli/${meli}`)
+
   }, [])
 
   useEffect(() => {
-    document.title = argenpropData.location.address + ' | Fabiana Klisch | Mudate conmigo'
-  }, [argenpropData])
+    document.title = propertyData.location.address + ' | Fabiana Klisch | Mudate conmigo'
+  }, [propertyData])
 
-  const { address } = argenpropData.location
-  const { city, cond } = argenpropData.location
-  const { images } = argenpropData
-  const saleCurrency = argenpropData.operation.sale.currency
-  const saleValue = argenpropData.operation.sale.value
-  const expensesValue = argenpropData.operation.expenses.value
-  const { antiquity, bathrooms, bedrooms, garages, layout, orientation, rooms, size, state } = argenpropData.detail
+  const { address } = propertyData.location
+  const { city, cond } = propertyData.location
+  const { images } = propertyData
+  const saleCurrency = propertyData.operation.sale.currency
+  const saleValue = propertyData.operation.sale.value
+  const expensesValue = propertyData.operation.expenses.value
+  const { antiquity, bathrooms, bedrooms, garages, layout, orientation, rooms, size, state } = propertyData.detail
 
   return (
     <>
-      {loading ? <LoadingScreen/> : null}
+      {loading ? <LoadingScreen /> : null}
       <Layout>
         <main class='md:max-w-5xl mx-auto'>
           <h1 class=' px-4 text-2xl text-remaxBlue-100 font-bold md:text-3xl md:leading-8'>

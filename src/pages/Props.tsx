@@ -21,7 +21,8 @@ export const Props = () => {
   }, [])
 
   useEffect(() => {
-    document.title = propertyData.location.address + ' | Fabiana Klisch | Mudate conmigo'
+    const title = propertyData.location.address
+    document.title = `${propertyData.location.address + ' | '}Fabiana Klisch | Mudate a la vida que querés`
   }, [propertyData])
 
   const { address } = propertyData.location

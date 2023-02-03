@@ -20,19 +20,18 @@ export function Home() {
 
       {/* Sección de recomendaciones */}
       <section class="container mx-auto mt-6 px-4 grid gap-6 max-w-4xl md:flex">
-        <a class="grid grid-cols-2 gap-3 items-center" href="https://www.facebook.com/mudatearanelagh/" target="_blank">
-          <p class="text-remaxWhite-400 leading-5 text-xs text-center font-light md:text-sm md:font-normal hover:text-remaxBlue-200 transition-colors">
+        <a class="grid grid-cols-2 gap-3 items-center hover:scale-105 transition-transform" href="https://www.facebook.com/mudatearanelagh/" target="_blank">
+          <p class="text-remaxWhite-400 leading-5 text-xs text-center font-light md:text-sm md:font-normal">
             ¿Querés conocer la ciudad más hermosa de GBA?<br />
             <span class="font-bold ">Viví Ranelagh</span>
           </p>
           <img class="bg-viviRanelagh-blue aspect-square p-6 w-full rounded-xl md:max-w-[168px]" src="/vivi-ranelagh-logo.svg" alt="" />
         </a>
-        <a class="grid grid-cols-2 gap-3 items-center" href="https://www.remax.com.ar/agent/fabiana-raquel-klisch" target="_blank">
-          <p class="text-remaxWhite-400 leading-5 text-xs text-center font-light md:text-sm md:font-normal hover:text-remaxBlue-200 transition-colors">
+        <a class="grid grid-cols-2 gap-3 items-center hover:scale-105 transition-transform" href="https://www.remax.com.ar/agent/fabiana-raquel-klisch" target="_blank">
+          <p class="text-remaxWhite-400 leading-5 text-xs text-center font-light md:text-sm md:font-normal">
             ¿Estás buscando una nueva propiedad?<br />
-            <span class="font-bold">Mudate conmigo</span>
           </p>
-          <img class="bg-[#f3f7f8] border-orange-600 border-2 aspect-square p-6 w-full rounded-xl md:max-w-[168px]" src="https://img10.naventcdn.com/home/RPHOM-REDv4.52.0-RC1/images/logo-zonaprop.svg" alt="" />
+          <span class="font-bold text-center text-2xl text-remaxWhite-100 bg-remaxBlue-200 grid place-content-center aspect-square p-6 w-full rounded-xl md:max-w-[168px]">Mudate conmigo</span>
         </a>
         <div class="border-b-2 border-remaxWhite-200" />
       </section>

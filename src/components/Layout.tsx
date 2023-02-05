@@ -1,4 +1,5 @@
 import {JSX} from 'preact'
+import { Link } from 'wouter'
 import { Header } from "./UI/Header"
 
 interface props {
@@ -37,6 +38,7 @@ export const Layout = ({children}: props) => {
         <p class="text-remaxWhite-300 text-xs text-center">
           Los corredores públicos intermedian y concluyen todas las operaciones. Los agentes operan bajo el control y supervisión de un corredor público. Las oficinas son de propiedad y gestión independiente.
         </p>
+        <Link class='mx-auto border border-remaxWhite-300 p-2 px-4 rounded-full w-fit hover:scale-105 transition-transform' href="/dashboard">Acceder al dashboard</Link>
         <div class="grid grid-cols-2 place-items-center">
           <img class="w-24" src="/mls.svg" alt="Logo de Multiple Listing Service" />
           <img class="max-h-12" src="/remax-logo.png" alt="Logo de Remax" />

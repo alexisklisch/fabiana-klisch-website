@@ -19,10 +19,10 @@ export const useProperty = ({ id, platform, onLoading }: useProperty) => {
       if (platform === 'ap') {
         
         const res = await fetch(`https://klisch-api.vercel.app/api/argenprop/${id}`)
-        const data: Property = await res.json()
-          .finally(() => onLoading(false))
+        const data = await res.json()
+          .then(() => onLoading(false))
         
-        setPropertyData(data)
+        setPropertyData(data!)
         
       }
 
@@ -30,8 +30,8 @@ export const useProperty = ({ id, platform, onLoading }: useProperty) => {
         try {
           const res = await fetch(`https://klisch-api.vercel.app/api/meli/${id}`)
           const json = await res.json()
-            .finally(() => onLoading(false))
-          setPropertyData(json)
+            .then(() => onLoading(false))
+          setPropertyData(json!)
         } catch (err) {
           console.error(err)
           

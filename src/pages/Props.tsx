@@ -7,10 +7,10 @@ import { wpLinkCreator } from "../utils/wpLinkCreator"
 export const Props = () => {
   const [url, setUrl] = useState({id: '', platform: ''})
   const [loading, setLoading] = useState(true)
-  const { propertyData } = useProperty(url)
+  const { propertyData, isLoaded } = useProperty(url)
 
   useEffect(() => {
-    setLoading(false)
+    if (isLoaded) setLoading(false)
   }, [propertyData])
   
   useEffect(() => {

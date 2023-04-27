@@ -1,7 +1,4 @@
 import { useEffect, useState } from 'preact/hooks'
-import * as cheerio from 'cheerio'
-import { lowerator } from '../utils/lowerator'
-import { spacesRemover } from '../utils/spacesRemover'
 import { Property } from '../types'
 
 interface useProperty {

@@ -7,11 +7,16 @@ import { wpLinkCreator } from "../utils/wpLinkCreator"
 export const Props = () => {
   const [url, setUrl] = useState({id: '', platform: ''})
   const [loading, setLoading] = useState(true)
-  const { propertyData } = useProperty(url)
+
+  const loadingHandler = (value: boolean) => {
+    setLoading(value)
+  }
+
+  //@ts-ignore
+  const { propertyData } = useProperty(url, loadingHandler)
   
   
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500)
     const queryParams = new URLSearchParams(window.location.search)
     const argenprop = queryParams.get('ap')
     const meli = queryParams.get('ml')

@@ -7,10 +7,10 @@ import { Property } from '../types'
 interface useProperty {
   id: string,
   platform: string
-  onLoading: void
+  onLoading:(arg: boolean) => void
 }
 
-export const useProperty = ({ id, platform }: useProperty, onLoading: void) => {
+export const useProperty = ({ id, platform, onLoading }: useProperty) => {
   const [propertyData, setPropertyData] = useState<Property>()
   
   useEffect(() => {
@@ -20,7 +20,7 @@ export const useProperty = ({ id, platform }: useProperty, onLoading: void) => {
         
         const res = await fetch(`https://klisch-api.vercel.app/api/argenprop/${id}`)
         const data: Property = await res.json()
-          .then(() => onLoading(false))
+          .finally(() => onLoading(false))
         
         setPropertyData(data)
         
@@ -30,7 +30,7 @@ export const useProperty = ({ id, platform }: useProperty, onLoading: void) => {
         try {
           const res = await fetch(`https://klisch-api.vercel.app/api/meli/${id}`)
           const json = await res.json()
-            .then(() => onLoading(false))
+            .finally(() => onLoading(false))
           setPropertyData(json)
         } catch (err) {
           console.error(err)

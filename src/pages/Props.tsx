@@ -21,7 +21,6 @@ export const Props = () => {
   }, [])
 
   const location = propertyData?.location
-
   const attributes = propertyData?.attributes
   const coveredSize = attributes?.find(attr => attr.name === 'Superficie cubierta')
   const rooms = attributes?.find(attr => attr.name === 'Ambientes')
@@ -32,10 +31,10 @@ export const Props = () => {
   const garages = attributes?.find(attr => attr.name === 'Cocheras')
   const orientation = attributes?.find(attr => attr.name === 'Orientación')
   
-  // useEffect(() => {
-  //   const title = propertyData.location.address
-  //   document.title = `${propertyData.location.address + ' | '}Fabiana Klisch | Mudate a la vida que querés`
-  // }, [propertyData])
+  useEffect(() => {
+    const title = location?.address_line
+    document.title = `${title + ' | '}Fabiana Klisch | Mudate a la vida que querés`
+  }, [propertyData])
 
 
   return <>
